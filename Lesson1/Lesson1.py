@@ -83,5 +83,5 @@ print('-------------------')
 A = input('Точка A (x1,y1):').split(',')
 B = input('Точка B (x2,y2):').split(',')
 
-distance = round(((float(A[0]) - float(B[0])) ** 2 + (float(A[1]) - float(B[1])) ** 2) ** (0.5),3)
+distance = round(((float(A[0]) - float(B[0])) ** 2 + (float(A[1]) - float(B[1])) ** 2) ** 0.5, 3)
 print(f'Расстояние между точками равно: {distance}')
