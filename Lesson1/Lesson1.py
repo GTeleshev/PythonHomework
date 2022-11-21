@@ -8,7 +8,7 @@ weekday_number = int(input('Введите номер дня недели (1-7):
 
 if weekday_number == 6 or weekday_number == 7:
     print('да')
-elif weekday_number < 1 or weekday_number < 1:
+elif weekday_number < 1 or weekday_number > 7:
     print('число не находится в диапазоне от 1 до 7')
 else:
     print('нет')
