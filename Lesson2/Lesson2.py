@@ -1,0 +1,127 @@
+# 1. Напишите программу, которая принимает на вход вещественное число и показывает сумму его цифр.
+#
+# *Пример:*
+#
+# - 6782 -> 23
+# - 0.56 -> 11
+
+dec_number = float(input('Задача 1. Введите вещественное число: '))
+
+total_len = len(str(dec_number).replace('.', ''))
+int_num = int(dec_number)
+int_len = len(str(int_num))
+float_portion = round(dec_number - int_num, total_len - int_len + 1)
+norm_int = int((int_num + float_portion) * (10 ** (total_len - int_len)))
+
+sum_of_digits = 0
+
+for i in range(total_len):
+    sum_of_digits += norm_int % 10
+    norm_int = int(norm_int / 10)
+
+print(f'Сумма цифр числа {dec_number} равна: {sum_of_digits}')
+
+# 2. Напишите программу, которая принимает на вход число N и выдает набор произведений чисел от 1 до N.
+#
+# *Пример:*
+#
+# - пусть N = 4, тогда [ 1, 2, 6, 24 ] (1, 1*2, 1*2*3, 1*2*3*4)
+
+n2 = int(input('Задача 2 (список - факториалы элементов). Введите N: '))
+
+def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n - 1)
+
+def generate_factorial_list(N):
+    fact_list = [None] * N
+    for j in range(N):
+        fact_list[j] = factorial(j + 1)
+    return fact_list
+
+print('Выходной список: ', generate_factorial_list(n2))
+
+
+# 3. Задайте список из n чисел последовательности (1 + 1/n)**n и выведите на экран их сумму.
+#
+# *Пример:*
+#
+# - Для n=4 [2, 2.25, 2.37, 2.44]
+# Сумма 9.06
+
+def generate_1slash_n(N):
+    list_1_slash_N = [None] * N
+    for i in range(1, N + 1):
+        list_1_slash_N[i - 1] = round((1 + 1 / i) ** i, 2)
+    return list_1_slash_N
+
+
+def sum_of_list_elements(list):
+    list_sum = 0
+    for m in range(len(list)):
+        list_sum = list_sum + list[m]
+    return list_sum
+
+n3 = int(input('Задача 3 (список из n чисел последовательности (1 + 1/n)**n, сумма). Введите N: '))
+list_n = generate_1slash_n(n3)
+print(list_n)
+sum_list = sum_of_list_elements(list_n)
+print(f'Сумма равна {sum_list}')
+
+
+# 4. Задайте список из N элементов, заполненных числами из промежутка [-N, N].
+# Найдите произведение элементов на указанных позициях.
+# Позиции вводятся с клавиатуры. 5 2 6
+#
+# -5 -4 -3 -2 -1 0 1 2 3 4 5
+
+def generate_minus_n_to_n(N):
+    minus_n_to_n = [None] * (2 * N + 1)
+    for k in range(N * 2 + 1):
+        minus_n_to_n[k] = -N + k
+    print(minus_n_to_n)
+    return (minus_n_to_n)
+
+def sum_list_elements(position1, position2, list):
+    sum_list_elements = list[position1] + list[position2]
+    return sum_list_elements
+
+
+n = int(input('Задача 4 (список от -N, N. Суммирование элементов). Введите N: '))
+
+if n < 0:
+    n = -n
+
+pos1 = int(input('Введите позицию первого элемента: '))
+pos2 = int(input('Введите позицию первого элемента: '))
+
+list_2n = generate_minus_n_to_n(n)
+
+if pos1 > n or pos2 > n:
+    print('Позиции элементов не могут быть больше N')
+else:
+    sum_pos1_pos2 = sum_list_elements(pos1, pos2, list_2n)
+    print(f'Сумма элемента №{pos1}({list_2n[pos1]}) и элемента №{pos2}({list_2n[pos2]}) равна {sum_pos1_pos2}')
+
+# 5. Реализуйте алгоритм перемешивания списка
+
+import random
+
+print('Задача 5 (перемешивание списка)')
+list1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+
+def mix_list(input_list):
+    len_list = len(input_list)
+    for i in range(len_list - 1):
+        k = random.randint(0, len_list - 1)
+        temp = input_list[k]
+        input_list[k] = input_list[i]
+        input_list[i] = temp
+    return input_list
+
+
+print('Исходный список', list1)
+print('Перемешанный список', mix_list(list1))
