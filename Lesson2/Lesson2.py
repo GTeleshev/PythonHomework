@@ -123,5 +123,5 @@ def mix_list(input_list):
     return input_list
 
 
-print('Исходный список', list1)
-print('Перемешанный список', mix_list(list1))
+print('Исходный список:', list1)
+print('Перемешанный список:', mix_list(list1))
