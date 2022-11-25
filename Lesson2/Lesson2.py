@@ -117,7 +117,6 @@ def mix_list(input_list):
     new_list = [None] * len_list
     for i in range(len_list):
         k = random.randint(0, len_list - 1)
-        temp = input_list[k]
         new_list[k] = input_list[i]
         new_list[i] = input_list[k]
     return new_list
