@@ -115,10 +115,13 @@ list_1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
 def mix_list(input_list):
     len_list = len(input_list)
     new_list = [None] * len_list
+    for g in range(len_list):
+        new_list[g] = input_list[g]
     for i in range(len_list):
         k = random.randint(0, len_list - 1)
-        new_list[k] = input_list[i]
-        new_list[i] = input_list[k]
+        temp = new_list[k]
+        new_list[k] = new_list[i]
+        new_list[i] = temp
     return new_list
 
 def list_overlap(list1, list2):
