@@ -7,13 +7,13 @@
 #
 print('Задача 1. Сумма элементов списка, стоящих на нечётной позиции')
 
-num_list = [2, 3, 5, 9, 3]
+num_list = [2, 3, 5, 9, 3, -11]
 print('Список: ', num_list)
 
 def odd_sum(numlist):
     sum = 0
     for i in range(1, len(numlist), 2):
-        sum = sum + numlist[i]
+        sum += numlist[i]
     return sum
 
 
