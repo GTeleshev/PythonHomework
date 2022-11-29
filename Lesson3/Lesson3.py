@@ -133,7 +133,7 @@ def fibonacci(n):
         return fibonacci(n - 1) + fibonacci(n - 2)
 
 
-def mega_fibonacci_list(n: int) -> list:
+def nega_fibonacci_list(n: int) -> list:
     fib_list = [None] * (2 * n + 1)
     for i in range(2 * n + 1):
         num = -n + i
@@ -142,4 +142,4 @@ def mega_fibonacci_list(n: int) -> list:
 
 
 number = int(input('Введите целое число: '))
-print(f'Последовательность Фибоначчи от {-number} до {number}: {mega_fibonacci_list(number)}')
+print(f'Последовательность Фибоначчи от {-number} до {number}: {nega_fibonacci_list(number)}')
