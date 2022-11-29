@@ -12,7 +12,7 @@ print('Список: ', num_list)
 
 def odd_sum(numlist):
     sum = 0
-    for i in range(1, len(numlist) - 1, 2):
+    for i in range(1, len(numlist), 2):
         sum = sum + numlist[i]
     return sum
 
