@@ -217,4 +217,3 @@ print("Сумма многочленов", sumstring)
 
 with open('sumpol', 'w') as pol_file2:
     pol_file2.write(sumstring)
-
